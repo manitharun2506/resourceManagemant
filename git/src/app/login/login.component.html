@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row mt-5 justify-content-center">
+    <div class="col card col-6">
+      <h1 class="text-center mt-3">
+        {{ visiblity ? "signUp here!" : "login here!" }}
+      </h1>
+      <form action="" class="row p-5" [formGroup]="loginForm">
+      <div class="" *ngIf="visiblity">
+        <label for="" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter Your name"
+          formControlName="name"
+
+        />
+      </div>
+        <label for="" class="form-label">Mail</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter the mail id"
+          formControlName="email"
+
+        />
+        <label for="" class="form-label mt-3">Password</label>
+
+        <input
+          type="password"
+          class="form-control"
+          placeholder="enter the password"
+          formControlName="password"
+
+        />
+        <button class="btn btn-primary mt-3" (click)="submit()">Submit</button>
+        <div class="row justify-content-around mt-3">
+          <a (click)="visiblity = !visiblity" class="col-5">{{
+            visiblity
+              ? "click here to sign up as manager"
+              : "click here to login "
+          }}</a>
+          <a routerLink="/userLogin" class="col-5">login as user</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<nav class="navbar card ms-5 me-5 mt-3 bg-light">
+  <div class="container-fluid">
+    <div class="navbar-brand ms-5">Logo</div>
+    <form class="d-flex" role="search">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        (change)="submit($event)"
+      />
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <ul class="nav nav-pills me-5">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          data-bs-toggle="dropdown"
+          role="button"
+          aria-expanded="false"
+          >Settings</a
+        >
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" (click)="showdata = !showdata">{{
+              showdata ? "Hide Assignments" : " View Assignments"
+            }}</a>
+          </li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" (click)="logOut()">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5" *ngIf="showdata">
+  <div class="h3 text-center">List Of Your Assignments</div>
+  <div class="row justify-content-center">
+    <div class="col-8 card"></div>
+  </div>
+</div>
+
+<div class="container mt-5" *ngIf="!showdata">
+  <div class="h3 text-center">Search results</div>
+  <div class="row justify-content-center">
+    <div class="col-12 card">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Serial No</th>
+            <th>Name</th>
+            <th>Phone No</th>
+            <th>Email</th>
+            <th>Skill Set</th>
+            <th>Start Day Of The Project</th>
+            <th>Project Name</th>
+            <th>End Day Of The Project</th>
+            <th>Current Manager Name</th>
+            <th>Actions</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data,let idx=index">
+            <td>{{idx+1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.skillSet}}</td>
+            <td>{{item.startDateOfProject}}</td>
+            <td>{{item.currentProjectDetail}}</td>
+            <td>{{item.endDateOfProject}}</td>
+            <td>{{item.currentManagerName}}</td>
+            <td><button class="btn btn-primary" (click)="sendRequest(item)">Send Request</button></td>
+
+
+
+
+
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

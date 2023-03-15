@@ -1,0 +1,131 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-5">Logo</a>
+    <ul class="nav nav-pills me-5">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          data-bs-toggle="dropdown"
+          role="button"
+          aria-expanded="false"
+          >Settings</a
+        >
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="showdata=!showdata">{{showdata?"Close Profile":" Update Profile"}}</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item"(click)="logOut()" >Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container" *ngIf="showdata"> 
+  <div class="row">
+    <div class="col text-primary h4 text-center"> profile</div>
+  </div>
+  <div class="row  justify-content-center ">
+    <form action="" class="col-8" [formGroup]="userData">
+      <div class="" >
+        <!-- mani -->
+        <label for="" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter the name"
+          [disabled]="isDisabled"
+          formControlName="name"
+        />
+        </div>
+        <!-- mail -->
+        <label for="" class="form-label">Mail</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter the mail id"
+          formControlName="email"
+        />
+        <!-- password -->
+        <!-- <label for="" class="form-label mt-3">Password</label>
+
+        <input
+          type="password"
+          class="form-control"
+          placeholder="enter the password"
+          formControlName="password"
+        /> -->
+        <div class="" >
+
+        <!-- phone -->
+        <label for="" class="form-label">Phone Number</label>
+        <input type="number" class="form-control" formControlName="phone" />
+
+        <!-- Current Manager name -->
+        <label for="" class="form-label">Current Manager Name</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="currentManagerName"
+        />
+
+        <!-- current Manager Email -->
+        <label for="" class="form-label">Current Manager Email</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="currentManagerEmail"
+        />
+
+        <!-- current Manager phone No -->
+        <label for="" class="form-label">Current Manager Phone Number</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="currentManagerPhone"
+        />
+
+        <!-- Skill Set-->
+        <label for="" class="form-label">Enter your Skill set</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="ex: go, java ,bootstrap...,"
+          formControlName="skillSet"
+        />
+
+        <!-- Start Date Of the Project -->
+        <label for="" class="form-label">select Start date of project</label>
+        <input
+          type="date"
+          name=""
+          id=""
+          class="form-control"
+          formControlName="startDateOfProject"
+        />
+
+        <!-- end Date Of the Project -->
+        <label for="" class="form-label">select End date of project</label>
+        <input
+          type="date"
+          name=""
+          id=""
+          class="form-control"
+          formControlName="endDateOfProject"
+        />
+
+        <!-- current project details -->
+        <label for="" class="form-label"
+          >enter the current project details</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          formControlName="currentProjectDetail"
+        />
+        <button class="btn btn-primary mt-4" (click)="Update()">Update Profile</button>
+      </div>
+
+    </form>
+     
+  </div>
+</div>

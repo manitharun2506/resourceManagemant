@@ -1,0 +1,48 @@
+<nav class="navbar card ms-5 me-5 mt-3 bg-light">
+  <div class="container-fluid">
+    <div class="navbar-brand ms-5">Logo</div>
+
+    <ul class="nav nav-pills me-5">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          data-bs-toggle="dropdown"
+          role="button"
+          aria-expanded="false"
+          >Settings</a
+        >
+        <ul class="dropdown-menu">
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" (click)="logOut()">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <table>
+        <thead>
+          <tr>
+            <th>Serial No</th>
+            <th>Profile Name</th>
+            <th>Requested Manager Name</th>
+
+            <th>Accept</th>
+            <th>Reject</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of requests,let idx=index">
+            <td>{{idx+1}}</td>
+            <td>{{item.profile.name}}</td>
+            <td>{{item.manager.name}}</td>
+            <td><button class="btn btn-success" (click)="editRequest(item,true)">Acccept</button></td>
+            <td><button class="btn btn-danger" (click)="editRequest(item,false)">Reject</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
